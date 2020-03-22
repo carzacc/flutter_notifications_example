@@ -3,15 +3,13 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as statusCodes;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import 'dart:async';
-
-const URL = 'ws://192.168.1.167:3000';
+const URL = 'ws://YOUR.SERVER.URL:PORT';
 
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() =>
   runApp(MyApp());
-}
+
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -70,7 +68,7 @@ class AnnouncementPageState extends State<AnnouncementPage> {
   WebSocketChannel channel = WebSocketChannel.connect(Uri.parse(URL));
   TextEditingController controller = TextEditingController();
   var sub;
-  String text = null;
+  String text;
 
   @override
   void initState() {
